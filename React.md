@@ -113,4 +113,7 @@
  * -> how a child promotion(child) update sate in checkout(parent) > pass setCoupon down to component which need to update the state
 
 
+ ## DERIVED STATE
+ * -> state that is computed from an existing peice of state or from props
+
 
