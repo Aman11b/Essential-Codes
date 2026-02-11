@@ -116,4 +116,10 @@
  ## DERIVED STATE
  * -> state that is computed from an existing peice of state or from props
 
+## CHILDREN PROP
+* -> an empty "hole" thta can be filled by any JSX the component receive as children
+* -> insted of <button/> write more JSX <button>{here}</button> like html
+* -> children of button,accessible through prop.children
+* -> children prop allows us to pass JSX into a element
+* -> essential tool to make resuable and configure component
 
