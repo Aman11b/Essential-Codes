@@ -123,3 +123,6 @@
 * -> children prop allows us to pass JSX into a element
 * -> essential tool to make resuable and configure component
 
+## Prop Drilling
+* -> whenever we are passing prop just so that it can reach to some other component and this one act as intermediate with no use of that prop
+
