@@ -126,3 +126,37 @@
 ## Prop Drilling
 * -> whenever we are passing prop just so that it can reach to some other component and this one act as intermediate with no use of that prop
 
+ ## HOW TO SPLIT UI IN COMPONENTS
+ * -> Huge component
+  - too many responsibility
+  - might need too many props
+  - hard to reuse
+  - complex code,hard to undersatnd
+ 
+  -> Small component
+  - we will end up with 100s of mini components
+  - confusing codebase
+  - too abstracted
+ 
+ * ->how to split
+  - logical seperation
+  - some are reusable
+  - low complexity
+ 
+ * -> 4 critrtia
+  1. logical seperated of content/layout
+     - does the conmponent contain peices of content or layout that dont't belong together?
+     - is it possible to reuse part of this component?
+     - do you want/need to reuse it?
+     - is the component doing too many different things?
+     - does the component reply on too many props?
+     - does the component have too many peice of state and/or effect?
+     - is the ocde ,including JSX ,too complex/confusing?
+     - do you prefer smaller function/components?
+     ### - If yes then you need a new component
+ 
+  2. reusability
+  3. responsibilities/complexity
+  4. personal coding style
+ 
+
