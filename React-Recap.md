@@ -159,4 +159,8 @@
   3. responsibilities/complexity
   4. personal coding style
  
-
+ ## GENERAL GUIDELINES
+ * -> creating new component creates a new abstraction
+ * -> name the component according to what it does or what it displays
+ * -> never declare a new component inside another component
+ * -> co-locate related components inside same file
