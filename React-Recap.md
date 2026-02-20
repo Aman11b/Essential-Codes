@@ -164,3 +164,17 @@
  * -> name the component according to what it does or what it displays
  * -> never declare a new component inside another component
  * -> co-locate related components inside same file
+
+## Component categories
+ * -> stateless/presentational component
+ * - no state
+ * -receive prop and simpley present received data or other content
+ * - usually small and reusable
+ * -> stateful component
+ * - have state
+ * - can be reusable
+ * -> structural component
+ * - Pages, Layouts Screen or app
+ * - esult of composition
+ * - can be huge and non-reusable
+ * - provide structure
