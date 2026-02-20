@@ -178,3 +178,12 @@
  * - esult of composition
  * - can be huge and non-reusable
  * - provide structure
+  
+ ## COMPONENT COMPOSITION
+ * -> using a component inside a compoent dont let it to be reused
+ * -> in component composition we pass children as a prop and now the component is reusable too
+ * -> component composition is combining different compoent using the children prop (or explicitly defined props)
+ * ->WE use component composition in 2 cases
+ * - create highly reusable and flexible components
+ * - fix a prop drilling (great for layouts)
+ * - possible because components dont need to know their children in advance
