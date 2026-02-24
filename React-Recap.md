@@ -203,3 +203,18 @@
  * - JSX is converted to React.createElement() function call -> resulting react element
  * - it has all necessary info to create DOM element
  * COMPONENT (<Tab />) -> Component instances ( Returns) -> React Element (Inserted to DOM) -> DOM Element (HTML)
+
+ ## $$typeof: Symbol(react.element)
+ * -> this protects from cross site scripting attacts
+ * -> Symbol are javaScript primitive which cant be trasnmitted via json
+ * -> a symbol like this cant come from API call
+   
+```
+console.log( <DifferentContent test={23} /> );
+```
+> this is type DifferentContent
+
+```
+console.log(DifferentContent());
+```
+> this is type div -> raw react element not component instances
