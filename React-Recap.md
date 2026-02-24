@@ -233,3 +233,41 @@ console.log(DifferentContent());
  * 2. State is updated in one or more component instances(re-render)
  * -> render process is triggered for entire application
  * -> render are not triggred immediately, but scheduled for a when the JS engine has some " free time" (few miliseconds ).There is also batching of multiple setState calls in event handlers
+
+## Review: Mechanics of state in react
+ -> Not true #1: Rendering is updating the screen/dom (its calling component function )
+ -> Not true #2: React completely discard old view(DOM) on re-render
+
+ ## RENDER PHASE
+ * 1. component instances that trigger re-render 
+ * 2. react element
+ * 3. new virtual DOM 
+  - => VIRTUAL DOM (React element tree)
+  - -> component tree -> react element tree(virtual DOM)
+  - -> Virtual DOM: Tree of all react element created from all instances in the component tree
+  - -> Cheap and fast to create multiple trees
+  - -> nothing to do with Shadow DOM(brpwser technology used in web component)
+  - -> in rerender new component tree is created and a new react element tree is creted
+   ### Rendering a component will cause all of the child component to be rendered as well(no matter if porp changed or not) -> necessary because react doesn;t know weather children will be affected -> virtual DOM created again
+* 4. Reconciliation + Diffing (Current fiber tree > before state update) 
+  - its is done in react reconciler (Called Fiber)
+  => WHat is reconsiliation and why do we need it?
+  - creating react element tree is cheap and fast coz its just object but writing DOM is not is is relatively slow
+  - usually only a small of DOM needs to be updated
+  - react reuses as much of the exixtsing DOM as possible
+  => how to know which DOM is changed -> reconciliation
+  ### Reconciliation: Deciding which DOM elements actually need to be inserted ,deleted,or updated in order to reflect the latest state changes done by a reconciler(real engine of react current > reconciler is Fiber)
+  => The Reconciler : Fiber
+  - takes entire react element tree(virtual tree) -> (on initial render) -> creates Fiber tree
+  ### Fiber Tree: internal tree that has a "fiber" for each component instance and DOM element
+  - Fibers are not re-created on every render (its never destroyed just get mutated again and again over future reconciliation)
+  (Fiber{"Unit of work"} -> (current state,Props,Side effects,Used Hooks,Queue of work,...))
+  - each fiber is linked to it parent,all other has link to there previous sibling (linked list)
+  - Virtual and Fiber tree has componet with DOM element too ,they are complete representaion of DOM structure
+  - Work can be done asynchronously (Rendering process can be split into chunks,tasks can be prioritized,and work can be paused,reused or thrown away)
+  -- enables conurrent feater like suspense or transitions starting react18
+  --long render wont block JS engine
+  => Reconciliation in Action
+  - is there a a state update -> new virtual DOM is created-> new dom is reconcided + Diffing (Comparing elemtn based on there position in the tree is called diffing) with current fiber tree-> updated fiber tree(workInProgress tree) 
+* 5. Updated Fiber tree
+* 6. List of DOM updates => Result of the render phase ("list of effects")
