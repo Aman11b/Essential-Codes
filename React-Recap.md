@@ -187,3 +187,19 @@
  * - create highly reusable and flexible components
  * - fix a prop drilling (great for layouts)
  * - possible because components dont need to know their children in advance
+
+  ## COMPONENTS,INSTANCES,ELEMENTS
+ * -> Components
+ * - describe the UI
+ * - component is a finction that retusn React element(element tree) ,usually written as JSX
+ * - blueprint or template (using this component instances are created)
+ * -> Instances
+ * - instances are created when we use component
+ * - instance is actual physical manifestation
+ * - has its own state and prop
+ * - has a lifecycle(can be born live and die)
+ * -> Element
+ * - as instances are executed react return a element
+ * - JSX is converted to React.createElement() function call -> resulting react element
+ * - it has all necessary info to create DOM element
+ * COMPONENT (<Tab />) -> Component instances ( Returns) -> React Element (Inserted to DOM) -> DOM Element (HTML)
