@@ -235,8 +235,8 @@ console.log(DifferentContent());
  * -> render are not triggred immediately, but scheduled for a when the JS engine has some " free time" (few miliseconds ).There is also batching of multiple setState calls in event handlers
 
 ## Review: Mechanics of state in react
- -> Not true #1: Rendering is updating the screen/dom (its calling component function )
- -> Not true #2: React completely discard old view(DOM) on re-render
+* -> Not true #1: Rendering is updating the screen/dom (its calling component function )
+* -> Not true #2: React completely discard old view(DOM) on re-render
 
  ## RENDER PHASE
  * 1. component instances that trigger re-render 
