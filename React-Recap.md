@@ -218,3 +218,18 @@ console.log( <DifferentContent test={23} /> );
 console.log(DifferentContent());
 ```
 > this is type div -> raw react element not component instances
+
+## How rendering works > Overview
+ * -> Reacp
+ * - component -> component instances -> react element -> DOM Element -> UI
+ * -> how react element change into DOM element
+ * => How component are displayed on the screen
+ * -> Render is triggered (by updating state somewhere) => Render Phase(react calls component finction and figure out how DOM should be updated) => Commit phase (React actaully writes to the DOM ,updating ,inserting nad deleting element) => Browser paint
+ * -> in react ,rendering is NOT updating the DOM or displaying element on the screen.
+ * -> Rendering only happens internally inside React,it does not produce visual changes
+
+HO##  render are trigged
+ * 1. Initial render of the application(when it runs for very first time)
+ * 2. State is updated in one or more component instances(re-render)
+ * -> render process is triggered for entire application
+ * -> render are not triggred immediately, but scheduled for a when the JS engine has some " free time" (few miliseconds ).There is also batching of multiple setState calls in event handlers
