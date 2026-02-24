@@ -228,7 +228,7 @@ console.log(DifferentContent());
  * -> in react ,rendering is NOT updating the DOM or displaying element on the screen.
  * -> Rendering only happens internally inside React,it does not produce visual changes
 
-HO##  render are trigged
+## How render are trigged
  * 1. Initial render of the application(when it runs for very first time)
  * 2. State is updated in one or more component instances(re-render)
  * -> render process is triggered for entire application
