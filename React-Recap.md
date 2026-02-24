@@ -296,4 +296,16 @@ console.log(DifferentContent());
  * - Synchronous : DOM update are written in on go ,to keep UI consistent
  * 4.Browser Paint (updated UI on screen)
 
-
+## How Diffing works
+ * -> 2 Fundamental Assumption
+ * - Two element of different types will produce different trees
+ * - Element with a stable key prop stay the same across renders
+ * => this allowes reqact to go from O(n^3) to O(n) operations per 1000 element
+ * -> its comparing element by element based on its position in tree
+ * 1. Same position,different elelemt
+ * - React assume entire sub-tree is no longer valid
+ * - old component are destroyed and removed from DOM ,including state
+ * - tree might be rebuilt if children stayed the same(state is reset)
+ * 2. Same position ,same element
+ * - element will be kept (as well as child element), including state
+ * - sometimes this is not what we want.. then we can use key prop
