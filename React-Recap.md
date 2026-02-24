@@ -270,4 +270,30 @@ console.log(DifferentContent());
   => Reconciliation in Action
   - is there a a state update -> new virtual DOM is created-> new dom is reconcided + Diffing (Comparing elemtn based on there position in the tree is called diffing) with current fiber tree-> updated fiber tree(workInProgress tree) 
 * 5. Updated Fiber tree
-* 6. List of DOM updates => Result of the render phase ("list of effects")
+* 6. List of DOM updates => Result of the render phase ("list of effects"
+
+
+  ## THE COMMIT PHASE AND BROWSER PAINT
+ * 1. List of DOM update -> Update DOM
+ * - React writes to the DOM: inserting ,deleting, and updates (list of DOM updates are "flushed" to the DOM)
+ * - Committing is synchronous: DOM is updated in one go,it can't be interrupted.This is necessary so thta the DOM never shows partial result,ensuring a consistent UI(in sync with all times)
+ * - after the commit phase is completes,the workInProgress fiber tree becomes the current tree for the next render cycle
+ * (BROWSER PAINT)
+ * 2. Updated UI on the screen
+  > render phase (react) -> commit phase (ReactDOM) -> browser paint(browser)
+  - react does not touch the DOM.react only renders.it doesnt know where the render result will go
+  - react can be used on different platforms (Reactive Native -> iOS android, Remotion -> video, many more...)
+ 
+
+## RECAP
+ * 1. trigger(happen only on initila render or state update)
+ * 2. render phase () -> updated react element-> new virtual DOM-> reconcilied and diffing with current fiber tree-> updated fiber tree -> list of DOM update
+ * - do not pruduce any visual output
+ * - rendering a component also renders all of its child component
+ * - render is asynchronous: work can be split,prioritised ,paused and resumed
+ * 3. Commit phase
+ * - Updated DOM
+ * - Synchronous : DOM update are written in on go ,to keep UI consistent
+ * 4.Browser Paint (updated UI on screen)
+
+
