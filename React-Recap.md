@@ -347,3 +347,28 @@ console.log(DifferentContent());
  * - Do not directly use the DOM API
  * - Do not mutate object or variable outside of the function scope(This is why we cant mutate props)
  * - Do not uodate state(or Ref): this will create an infinite loop
+
+
+ ## STATE UPDATE BATCHING
+ * => How state update are batched
+ * -> Render are not triggered immediately,but scheduled for when JS engine has some "free time".There is also bacthing of multiple setState call in event handlers
+```
+  const reset=fuction(){
+   setAnswer("")
+   console.log(answer)
+   setBest(true)
+   setSolved(false)
+}
+ ```
+* -> it does not update state and render+ commit 3 times 
+* -> all will be batched as one state update for entire event handler then redner+commit(just one render and commit per event handler)
+* -> but what will be value of console.log 
+* -> statee is stored in fiber tree during render phase 
+* -> at this point,re-render has not happened yet
+* -> therefore ,answer still containes current state,not the updated state(" ") -its is "Stale state"
+* => that is why upadting state in react is asynchronous
+* -> updated state variable are not immediately available after setState call,but only after the re-render
+* -> this is also applies when only one state variable is updated
+* -> if we need to update state based on previous update,we  use setState with call back(SetAnswer(answer=> ...))
+* => Batching beyond event handler function
+* -> automatic bathcing for event handler was in react 17 its for timeout and promises and native events too in react18+ 
