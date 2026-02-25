@@ -323,3 +323,27 @@ console.log(DifferentContent());
  * 2. KEY PROP TO RESET STATE (CHANGING KEY)
  * -> if we have the same element at the same position in the tree the dom elelemt  and state will be kept
  * -> if we have a question component with a answer and we chnage the question the answer will remain the same and irrelevent in this case coz of the rule hnece use key so that its is differentiated and the sate will be reset
+
+ ## TWO TYPES OF LOGIC IN REACT COMPONENT
+ * 1.render logic
+ * -> code that lives at the top level of th component function
+ * -> participate in describing how the component view looks like
+ * -> executed every time the component renders
+ * 2.event handeling function
+ * -> exexcuted as concequences of the event that the handler is listening for
+ * -> code that actually does things
+ 
+ ## FUNCTIONAL PROGRAMMING PRINCIPLES
+ * 1.Side effect: dependency on or modification of any dat outside the function scope."Interration with outside world".Example: mutating external variable,HTTP request,Writing to DOM
+ * 2.Pure function:a function that has no side effects
+ * -> given the same input ,a pure function will always return the same output
+
+ ## RULES FOR RENDER LOGIC
+ * -> component must be pure when it comes to render login: given the same prop(input), a component instances should always return the same JSX (output)
+ * -> render login must produce no sde effects: no interaction with the "outside world" is allwed.
+ * So, in rende logic:
+ * - Do not perform network request (API Calls)
+ * - Do not start timer
+ * - Do not directly use the DOM API
+ * - Do not mutate object or variable outside of the function scope(This is why we cant mutate props)
+ * - Do not uodate state(or Ref): this will create an infinite loop
