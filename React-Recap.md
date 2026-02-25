@@ -309,3 +309,17 @@ console.log(DifferentContent());
  * 2. Same position ,same element
  * - element will be kept (as well as child element), including state
  * - sometimes this is not what we want.. then we can use key prop
+
+  ## KEY PROP
+ * -> special prop that we use to tell the diffing algo that an element is unique
+ * -> allow react to distinguish between multiple instances of the same component type
+ * -> when a key stays the same across renders,the elelemt will be kept in DOM(even if the position in the tree changes)
+ * - using key in list
+ * -> when a key chnages between render,the elelemt will be destroyed and a new one will be created (even if the position in the tree is the same as before)
+ * - using key to reset the state
+ * 1. KEYS IN LISTS (STABLE KEY)
+ * -> no key-> adding a new list item -> same element ,but different position in tree,so they are removed and recreated in the DOM(bad for performance)
+ * -> with keys -> adding new lits item ->different position in the tree but the key stays the same,so the element will be kept in DOM
+ * 2. KEY PROP TO RESET STATE (CHANGING KEY)
+ * -> if we have the same element at the same position in the tree the dom elelemt  and state will be kept
+ * -> if we have a question component with a answer and we chnage the question the answer will remain the same and irrelevent in this case coz of the rule hnece use key so that its is differentiated and the sate will be reset
