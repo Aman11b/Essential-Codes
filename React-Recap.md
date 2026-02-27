@@ -395,3 +395,16 @@ console.log(DifferentContent());
  * -> multiple state update inside an event handler function are batched so they happen all at once causing only one re-render.This means we can not access a state variable immediately after undating it: state udpate are asynchronous.Since react 18 batching also happens in timeout promises native and handlers
  * -> using event in event handlers we get access to a synthetic event object not the browser native object so that event work the same way across all browser.The difference is that most synthetic event bubble, including focus blur and chnage which do not bubble as native browser event. only the scroll vent does not bubble
  * -> react is a libery not a framework.This means that you can assemble your application using your favorite 3rd party liberary.The downside is that you need to find and learn all these additional liberies
+
+## Component(instance) lifecycle
+ * 1. Mounted/Initial render
+ * - component instance is rendered for the first time
+ * - fresh state and prop are created
+ * 2. re-rendered(unlimited times)
+ * - state change
+ * - prop change
+ * - parent change
+ * - context change
+ * 3. unmounted
+ * - component instance is destoyed and removed
+ * - state and prop are destroyed
