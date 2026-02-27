@@ -372,3 +372,26 @@ console.log(DifferentContent());
 * -> if we need to update state based on previous update,we  use setState with call back(SetAnswer(answer=> ...))
 * => Batching beyond event handler function
 * -> automatic bathcing for event handler was in react 17 its for timeout and promises and native events too in react18+ 
+
+
+ ## LIBRARY vs FRAMEWORK vs THE REACT ECOSYSTEM
+ * -> Framework (all in one kit)
+ * - everything you need to build a completed application is included in the framework("batteries included")
+ * -> liberary (seperate ingredient)
+ * - view library (react just draw component on UI)
+ * - enternal library is needed
+ 
+
+## Practical summary
+ * -> a component is like a blueprint for a piece of UI that will eventually exist on the screen.When we "use" a component ,React create a component instance,which is like an actual physical manifestation of a component,containing prop,state na dmore. A component instance,when rendered,will return a React Element
+ * -> Rendering only menas calling component function and calculating what DOM element need to be inserted deleted and updated.It has nothing to do with writing to DOM.Therefore each time a component instance is rendered and re-rendered the function is called again
+ * -> only the initail app render and state update can cause a render,which happens for the entire application ,not just one single component
+ * -> when a component instance gets re-rendered,all its children will get re-rendered as well.This doesnt mean that all children will get updated in the DOM,thanks to reconciliation ,whic checks which element hasve actually changed between two render.But all this re-rendereing can still have an impact on performance
+ * -> diffing is how react decide which DOM element needs to be added or modified.If between render a certain react element stays at the same position in the element tree the corresponding DOM element and compoent state will saty the same.If the element changed to a different position of if it's a different element type the DOM element and state will be destroyed
+ * -> giving element a key prop allow react to distinguish between multiple component instances.When a key stays the same across render,the element is kept in the DOM.This is why we need to use keys in list.When we chnage the key between reander the DOM element will be destroyed and rebuilt we use this as trick to reset state
+ * -> never declare a new component inside another component,Doing so will re-create the nested component everytime the parent component re-render REqact will always see the nested component as new,and there reset its state each time the parent state is updated
+ * -> the logic that produce JSX output for a component instances("render" logic) is not allowed to produce any side effect: no API calls no timer no object or variable mutation no state update. Side effect are allowed in event handler and userEffect
+ * -> The DOM is udpated in the commit phase,but not by react but by a "renderer" called REACTDOM.Thats's why we always need to include both liberary in a react web app project. We can use other renderer to use react on different platforms for ep to built mobile or native apps
+ * -> multiple state update inside an event handler function are batched so they happen all at once causing only one re-render.This means we can not access a state variable immediately after undating it: state udpate are asynchronous.Since react 18 batching also happens in timeout promises native and handlers
+ * -> using event in event handlers we get access to a synthetic event object not the browser native object so that event work the same way across all browser.The difference is that most synthetic event bubble, including focus blur and chnage which do not bubble as native browser event. only the scroll vent does not bubble
+ * -> react is a libery not a framework.This means that you can assemble your application using your favorite 3rd party liberary.The downside is that you need to find and learn all these additional liberies
