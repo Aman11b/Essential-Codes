@@ -408,3 +408,21 @@ console.log(DifferentContent());
  * 3. unmounted
  * - component instance is destoyed and removed
  * - state and prop are destroyed
+
+
+## A First look at effect
+ * -> Side effect is basically any interaction between a react component and the world outside the compnent
+ * -> side effect should not happend in render logic
+ * -> side effect can be implement by event handlers(function triggered) and effect(useEffect) - Effect allow us to write code that will run at different moment:Mount re-ender or un-mount
+
+
+
+## Event handler
+ * - executed when the corresponding event happens
+ * - use to react to an event
+ * - preferred way to create side effects
+ * Effect
+ * - executed after the component mount(initial mount) and after subsequent re-render(accourding to dependency array)
+ * - each one has Effect code + Cleanup function + dependency array
+ * - used to keep a component synchronized with some external system
+  
