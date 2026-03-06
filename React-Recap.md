@@ -425,4 +425,25 @@ console.log(DifferentContent());
  * - executed after the component mount(initial mount) and after subsequent re-render(accourding to dependency array)
  * - each one has Effect code + Cleanup function + dependency array
  * - used to keep a component synchronized with some external system
-  
+
+## * DEPENDENCY ARRAY
+ * -> BY default effect run after every render we can prevent that by passing a dependency array
+ * -> without the dependency array ,React doent know when to run the effect
+ * -> Each time one of the depnedecies change the effect will be executed again
+ * ### every state variable and prop used inside the effect MUST be included in the dependency array (otherwise we get a "stale closure")
+ * => useEffect is like an event listener that is listeniing for one dependency to change,Whenever a dependency chnages it will execute the effect again
+ * -> effect react to update to state and props used inside the effect(the dependency).So effect are "reactive"
+ * -> Component state/prop -> synchronize with -> external system(side effect)
+ => Dependency(state or prop chnages)-> effect is executed again,component is re-rendered (effect and component lifecycle are deeply connected)
+ -> we can use the dependency array to run effect ehrn the component render or re-renders
+
+ | Hook Usage | Synchronization | Lifecycle |
+|-------------|----------------|-----------|
+| `useEffect(fn)` | Syncs with every render | Runs after every render |
+| `useEffect(fn, [])` | No dependencies | Runs only once after mount |
+| `useEffect(fn, [x])` | Syncs with `x` | Runs on mount and when `x` changes |
+| `useEffect(fn, [x, y, z])` | Syncs with `x`, `y`, `z` | Runs on mount and when any dependency changes |
+
+* => when are effect executed (timeline)
+
+### Mounting(initial render)-> commit -> browser paint -> EFFECTS(if effect sets state ,an additional render will be required thast why it happens later) -> (title change -> re-render -> commit ->LAYOUT EFFECT -> browser paint -> () -> EFFECT) -> unmount -> ()
