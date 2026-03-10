@@ -458,3 +458,19 @@ console.log(DifferentContent());
  * -> necessary whenever the side effect keeps happening after the component has been re-rendered or unmounted
  * -> eg: http request > cancel request in cleanup,API subscription > cancel subscription,start timer > stop timer,add event listener > remove listener
  * -> each effect should do only one thing! use on useEffect hook for each side effect.This makes effect easier to clean up
+
+```
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+
+      return function () {
+        document.title = "popCorn";
+        console.log(`Clean up effect for movie ${title}`);
+      };
+    },
+    [title],
+  );
+```
+> clean up function triggers on unmount still this will console the title ,how is it saving the title after getting unmounted the reason is closure,closure in JS mean a function will always remeber all the variables that were present at the time and place data function was created,when the cleanup was created title was alreadt set to a certain value thast why it remembers it
