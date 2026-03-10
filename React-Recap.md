@@ -474,3 +474,58 @@ console.log(DifferentContent());
   );
 ```
 > clean up function triggers on unmount still this will console the title ,how is it saving the title after getting unmounted the reason is closure,closure in JS mean a function will always remeber all the variables that were present at the time and place data function was created,when the cleanup was created title was alreadt set to a certain value thast why it remembers it
+
+## cleanup for data fetching
+
+```
+ useEffect(
+    function () {
+      const controller = new AbortController();
+      async function fetchMovies() {
+        try {
+          SetIsLoading(true);
+          setError("");
+          const res = await fetch(
+            `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
+            { signal: controller.signal },
+          );
+
+          if (!res.ok) throw new Error("Some went wrong with fetching movie");
+
+          // this is side effect
+          const data = await res.json();
+          if (data.Response === "False") throw new Error("❌ Movie not found");
+          setMovies(data.Search);
+          setError("");
+        } catch (err) {
+          // console.error(err.message);
+          if (err.name !== "AbortError") {
+            setError(err.message);
+          }
+        } finally {
+          SetIsLoading(false);
+        }
+      }
+      if (query.length < 3) {
+        setMovies([]);
+        setError("");
+        return;
+      }
+      fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
+    },
+    [query],
+  );
+```
+> on every keystoke component gets re-render and then the clean up will be called as it triggers between re-render too,so each time a re-render happens the controller will abort the current fetch request, that is eactly what we want to cancel request
+
+> one problem with this is as soon as it get cancelled JS sees it as an error,but we can ignore it with this
+```
+          if (err.name !== "AbortError") {
+            setError(err.message);
+          }
+```
+
