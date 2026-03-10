@@ -561,3 +561,6 @@ console.log(DifferentContent());
  * 2.  only call hooks from react function
  * - only call hooks inside a function component or a custom hook
  * > these rules are automatically enforced by React's ESLint rules
+
+## More Details on useState
+> what ever we pass in useState is in initial state,react will only look at it on initial state that is when it mounts
