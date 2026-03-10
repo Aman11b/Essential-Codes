@@ -528,4 +528,36 @@ console.log(DifferentContent());
             setError(err.message);
           }
 ```
+ ## WHAT ARE REACT HOOKS?
+ * -> special built-in function that allows us to "hook" into react interations:
+ * - creating and accessing state from fiber tree
+ * - registering side effects in fiber tree
+ * - manula DOM selection
+ * -> always start with "use"
+ * -> enables easy reusing of non-visula logic:we can compose multiple hooks into out own custom hooks
+ * -> give function component the ability to won state and run side effect at different lifecycle point(before v16.8 only available in class component)
 
+ ## OVERVIEW OF ALL BUILT-IN HOOKS
+ | Most used   | Less used            | Only for libraries       |
+|-------------|----------------------|--------------------------|
+| useState    | useCallback          |                          |
+| useEffect   | useMemo              |                          |
+| useReducer  | useTransition        |                          |
+| useContext  | useDeferredValue     | useSyncExternalStore     |
+|             | useLayoutEffect      | useInsertionEffect       |
+|             | useRef               |                          |
+|             | useId                |                          |
+|             | useImperativeHandle  |                          |
+|             | useDebugValue        |                          |
+
+ ## THE RULES OF HOOKS
+ * 1.  only call hooks at the top level
+ * - do not call hoooks inside conditionals,loops,nested function, or after an early return
+ * - this is necessary to ensure that hooks are always called in the same order(hook rely on this)
+### HOOKS REPLY ON CALL ORDER
+ * -> react element tree(virtual DOM) - (on initial render) Fiber tree -> Fiber(props,..,linkedlist of hooks)
+ * > is you called hook in conditions and suppose there are many hooks formed in form of linked list and if suppose one condition retuned false that means that hook is vanished but now what will happen to the link list now we have a hole in link list which is not possible
+ * > why linked list then ,coz it a simplest way to represent to assocaite each hook with its value
+ * 2.  only call hooks from react function
+ * - only call hooks inside a function component or a custom hook
+ * > these rules are automatically enforced by React's ESLint rules
