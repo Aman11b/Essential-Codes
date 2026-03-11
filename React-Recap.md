@@ -585,3 +585,19 @@ console.log(DifferentContent());
   ```
   > Function must be pure and return next state
   ### make sure to NOT mutate object or array,but to replace them
+
+## WHAT ARE REFS?
+ * -> "BOX" (object) with a mutable .current property that is persistsed across renders("normal veriable are always reset")
+ * -> we can write to and read from the ref using .current
+ * -> Two big use cases
+ * - creating a variable that stays the same between renders(eg previous stsate,setTimeout id etc..)
+ * - selecting and storing DOM element
+ * -> Refs are for data that is not rendered:usually only appear in event handlers or effect,not in JSX (otherwise use State)
+ * -> Do not read or write .current in render logic(like state)
+   
+ | Feature / Behavior                              | State | Ref |
+|-------------------------------------------------|:----:|:---:|
+| Persistent across re-renders                    | ✅   | ✅  |
+| Updating it causes component re-render          | ✅   | ❌  |
+| Value is immutable (should not mutate directly) | ✅   | ❌  |
+| Updates are asynchronous                        | ✅   | ❌  |
