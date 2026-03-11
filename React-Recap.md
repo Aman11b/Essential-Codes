@@ -601,3 +601,15 @@ console.log(DifferentContent());
 | Updating it causes component re-render          | ✅   | ❌  |
 | Value is immutable (should not mutate directly) | ✅   | ❌  |
 | Updates are asynchronous                        | ✅   | ❌  |
+
+ ## RESUSING LOGIC WITH CUSTOM HOOKS
+ * -> we can reuse two things in react a piece of UI(component) or logic(does logic have any hooks-(yes)-> Custom Hook -(No)-> Regualr function)
+ * -> allow us to reuse non-visual logic in multiple components
+ * -> one custom hook should have one purpose,to make it reusable and portable(even across multiple projects)
+ * -> rules of hooks apply to custom hooks too
+ * -> basically its just a JS function,unlike component it can receive and return any relevent data(usually [] or{})
+ * -> custom hooks need to use one or more react hooks
+ * -> fucntion names needs to start with use
+ * => when to create one
+ * - we want to reuse some part of non-visual logic
+ * - simpley want to extract a hig part of our component out into some custom hook
