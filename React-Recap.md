@@ -562,5 +562,26 @@ console.log(DifferentContent());
  * - only call hooks inside a function component or a custom hook
  * > these rules are automatically enforced by React's ESLint rules
 
-## More Details on useState
-> what ever we pass in useState is in initial state,react will only look at it on initial state that is when it mounts
+ ## Summary of defining and updating sytate
+  -> what ever we pass in useState is in initial state,react will only look at it on initial state that is when it mounts
+ 1. creating state
+  - Simple
+  ```
+   const [count,setCount]=useState(23);
+  ```
+  - based on function(lazy evaluation)
+```
+   const [count,setCount]=useState(()=>localStorage.getItem("count"));
+ ```
+  > function must be pure and accept no argument,called only on initial render
+ 2. Updating state
+  - Simple
+  ```
+   setCount(1000);
+  ```
+  - Based on current state
+  ```
+   setCount((c)=>c+1)
+  ```
+  > Function must be pure and return next state
+  ### make sure to NOT mutate object or array,but to replace them
