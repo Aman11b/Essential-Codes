@@ -651,4 +651,5 @@ console.log(DifferentContent());
 | Still supported | Older projects and legacy codebases use class components |
 
 >  hooks works in function component not in class components
+
 >  in class we have one huge state object now multiple state variables
