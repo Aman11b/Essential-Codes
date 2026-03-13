@@ -613,3 +613,42 @@ console.log(DifferentContent());
  * => when to create one
  * - we want to reuse some part of non-visual logic
  * - simpley want to extract a hig part of our component out into some custom hook
+
+## Class Component vs Function Component (React)
+
+| Feature / Category | Function Component | Class Component |
+|--------------------|-------------------|-----------------|
+| Introduction Version | Introduced with Hooks in React v16.8 (2019) | Introduced earlier around React v0.13 (2015) |
+| Existence | Existed since early React but without Hooks | Core way to create components before Hooks |
+| How to Create | JavaScript function (arrow function or normal function) | ES6 class extending `React.Component` |
+| Reading Props | Destructuring or `props.x` | `this.props.x` |
+| Local State | `useState` Hook | `this.state` and `this.setState()` |
+| Side Effects / Lifecycle | `useEffect` Hook | Lifecycle methods (`componentDidMount`, `componentDidUpdate`, `componentWillUnmount`) |
+| Event Handlers | Regular functions inside component | Class methods |
+| Returning JSX | Return JSX directly from function | Return JSX from the `render()` method |
+
+---
+
+## Advantages of Function Components
+
+| Advantage | Explanation |
+|-----------|-------------|
+| Easier to build | Less boilerplate compared to classes |
+| Cleaner code | Hooks make code shorter and easier to read |
+| Unified side-effect handling | `useEffect` combines multiple lifecycle behaviors |
+| Easier state logic sharing | Custom Hooks allow reusable stateful logic |
+| No `this` keyword | Avoids confusion with `this` binding |
+| Modern React standard | Recommended approach in modern React apps |
+
+---
+
+## Advantages of Class Components
+
+| Advantage | Explanation |
+|-----------|-------------|
+| Explicit lifecycle methods | Lifecycle phases are clearly separated |
+| Familiar OOP style | Developers comfortable with classes may find it intuitive |
+| Still supported | Older projects and legacy codebases use class components |
+
+>  hooks works in function component not in class components
+>  in class we have one huge state object now multiple state variables
