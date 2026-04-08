@@ -716,7 +716,7 @@ console.log(DifferentContent());
  * -> application thta is executed entirely on the client(browser)
  * -> Routs:different URL correseponds to differetn views
  
- # ->User clicks router link -> URL is chnaged(In react,react-router package does this job)-> DOM is updated:react component corresponding to the new URL is rendered[when ever needed it can load data from web API]
+ > ->User clicks router link -> URL is chnaged(In react,react-router package does this job)-> DOM is updated:react component corresponding to the new URL is rendered[when ever needed it can load data from web API]
 
  * -> JavaScript (React) is used tyo udpate the page(DOM)
  * -> The page is never reloaded(entire app is juts one page so without any hard reloads)
