@@ -761,3 +761,19 @@ console.log(DifferentContent());
 
 - to move to new URL without the user having to click on any link
 - use case: right after submitting form
+
+
+## CONTEXT API (Advance state management)
+
+### a solution to prop drilling
+
+- context API basically allows components everywhere in the tree to read state that a context shares.
+- system to pass data throughout the app without manually passing props down the tree
+- allows us to " boardcast" global state to the entire app
+  1. Provider: gives all child component access to value
+  2. Value: data we want to make available(usually state and function)
+  3. consumers: all component that read the provided context value
+
+> whenever the content value changes/updated all consumers will be automatically re-rendered
+
+> value is updated -> all consumer re-renders(a new way of re-rendering components)
