@@ -770,9 +770,38 @@ console.log(DifferentContent());
 - context API basically allows components everywhere in the tree to read state that a context shares.
 - system to pass data throughout the app without manually passing props down the tree
 - allows us to " boardcast" global state to the entire app
-  1. Provider: gives all child component access to value
+ 1. Provider: gives all child component access to value
+
+  > 1: create a new content
+
+  ```
+   const PostContext = createContext();
+  ```
+
   2. Value: data we want to make available(usually state and function)
+
+  > 2: provide value to child component
+
+  ```
+    <PostContext.Provider
+      value={{
+        posts: searchedPosts,
+        onAddPost: handleAddPost,
+        onClearPosts: handleClearPosts,
+        searchQuery,
+        setSearchQuery,
+      }}
+
+  ```
+
   3. consumers: all component that read the provided context value
+
+  > 3: consuming the content value
+
+  ```
+    const { onClearPosts } = useContext(PostContext);
+  ```
+
 
 > whenever the content value changes/updated all consumers will be automatically re-rendered
 
