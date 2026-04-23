@@ -806,3 +806,41 @@ console.log(DifferentContent());
 > whenever the content value changes/updated all consumers will be automatically re-rendered
 
 > value is updated -> all consumer re-renders(a new way of re-rendering components)
+
+
+## Review: what is state management
+
+- giving each peice of state the right home
+
+### Types of state
+
+1. state accessibility
+
+- local state : needed only by one or few component, only accessible in component and child component
+- global state: might needed by manuy component,accessible to every component in the application
+
+> if this component was rendered twice should a state udpate in one of them reflect in the other one ? global : local
+
+2. state domain
+
+- remote state: all application data loaded from a remote server(API),
+  usually asynchronous,need re-fetcheding+updating
+- UI state: everything else(theme,list, filtered, form, data, etc),usualy synchronous and stored in the application
+
+### state placement options
+
+- Local component: useState,useReducer,userRef : local state
+- parent component: useState,useReducer,userRef : lifting up state
+- content : Content API +useState or useReducer : Global state(Prefereably UI state)
+- 3rd-party library: Redux,React Query, SWR, Zustand,etc : Global state(remote or UI)
+- URL: React Router : Global state,passign between pages
+- Browser : Local storrage ,sessionstoreage etc : stpring data in user's browser
+
+### state management tool options
+
+## State Management Matrix
+
+|                  | **Local State**                                                       | **Global State**                                                                             |
+| ---------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **UI State**     | `useState`, `useReducer`, `useRef`                                    | Context API + `useState` / `useReducer`, Redux, Zustand, Recoil, React Router                |
+| **Remote State** | `fetch` + `useEffect` + `useState` / `useReducer` _(small apps only)_ | React Query, SWR, RTK Query _(preferred)_ + Redux/Zustand/Recoil (if needed for global sync) |
