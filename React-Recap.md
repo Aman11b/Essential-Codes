@@ -844,3 +844,40 @@ console.log(DifferentContent());
 | ---------------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | **UI State**     | `useState`, `useReducer`, `useRef`                                    | Context API + `useState` / `useReducer`, Redux, Zustand, Recoil, React Router                |
 | **Remote State** | `fetch` + `useEffect` + `useState` / `useReducer` _(small apps only)_ | React Query, SWR, RTK Query _(preferred)_ + Redux/Zustand/Recoil (if needed for global sync) |
+
+## PERFORMANCE OPTIMIZATION TOOLS
+
+-> Prevemt wasted renders
+
+- memo (component)
+- useMomo(object, function)
+- useCallback
+- Passing elements as childrene or regular prop
+
+-> Improve App Speed/Responsiveness
+
+- useMemo
+- useCllback
+- useTransition
+
+-> Reduce Bundle Size
+
+- using fewer 3rd party packages
+- code splitting and lazy loading
+
+## WHEN DOES A COMPONENTS INTENCE RE-RENDER?
+
+-> A component instance only re-renders in 3 different situation
+
+- state change
+- content change
+- parent component re-rendering
+
+> prop change doesnt case re-render as it only happen when parent re-render,henc parent re-render creates the false impression that changing props re-renders a component which is false
+
+### Remember: A render does not mean that the DOM actually gets updated,it just means the component function gets called,But this can be an expensive operation
+
+### WASTED RENDER
+
+-> a render that didn't prodced any change in the DOM
+-> only a problem when they happen too frequently or when the component is very slow
