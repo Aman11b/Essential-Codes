@@ -930,3 +930,17 @@ console.log(DifferentContent());
 - Memoizing props to prevent wasted render(together with memo)
 - Memoizing value to avoid expensice re-calcualtions on every render
 - Memoizing values that are used in dependency array of another hook
+
+> state setter functions are automaticlly memoized,you can exclude them from dependecy array
+
+### Optimizing Context Re-renders
+
+- Your need to optimise the Context when these 3 things are true at the same time
+
+-> State in the Context needs to change all the time
+-> Contenxt has many consumers
+-> The app is slow and laggy
+
+1. pass children
+2. memoize direct decendent of the context
+
