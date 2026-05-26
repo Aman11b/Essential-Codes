@@ -881,3 +881,21 @@ console.log(DifferentContent());
 
 -> a render that didn't prodced any change in the DOM
 -> only a problem when they happen too frequently or when the component is very slow
+
+
+## What is MEMOIZATION
+
+> Memoization: Optimizing technique that executes a pure function once,and save the result in memory.If we try to execute the function again with same argument as before,the previosly saved result will be returned,without executing the function again
+
+-> Memorise components with memo
+-> Memorise objects with useMemo
+-> Memorise function with useCallback
+
+-> Prevent wasteed renders
+-> improve app speed/responsiveness
+
+### THE MEMO FUNCTION
+
+-> Used to create a component that will not re-render when its parent re-render as long as the props stays the same between renders
+-> Only affects props! A memorized component will still re-render when its own state changes or when a context that it's subscribed to changes
+-> Only makes sense when the component is heavy(slow rendering),re-render often and does so with the same props
