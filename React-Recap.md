@@ -991,4 +991,4 @@ console.log(DifferentContent());
 
 ## CLOUSERS IN EFFECTS
 > A function captures all the varibales from its lexical scope.(FROM THE PLACE IT WAS DEFINED ,AT THE TIME THAT FUNCTION WAS CREATED)
-
+> stale clouser only happnes when if the function is still referencing some oldf value that are outdated by the time this function ins running 
