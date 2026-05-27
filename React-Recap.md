@@ -959,3 +959,32 @@ console.log(DifferentContent());
 - Optimize content if it has many consumers and chnages often
 - Memoize contexr value + child component
 - Implement code splitting + lazy loading for SPA routes
+
+## USEEFFECT DEPENDENCY ARRAY RULES
+-> Every single variable ,prop, and context value used inside the effect MUST be included in the dependency array
+-> All " reactive values" must be included! That means any finction or varibale that refrences to any othe reacative value
+ - Reactive value: state,prop, or context value or anything other that reference a reactive value
+-> Dependencies choose themselves: NEVER ignore the exhaustive-deps ESLint rule!
+-> Do not use Objects or array as dependencies (Object are recreated on each render ,and React sees new object as different, {} !== {}  react compare with ===)
+> Same rules apply to the depndency arrays of other hooks: useMemo and useCallback
+
+## REMOVING UNNESCESSARY DEPENCENCIES
+-> removing function dependencies
+ - Move function into the effect
+ - if you need the function in multiple places ,memoize it(useCallback)
+ - if the function doesnt reference any reactive value,move it out of the component
+-> removing object dependencies
+ - insted of including the entire object including only the properties you need(primitive values)
+ - if that doesnt work use the same statergies as of function(moving or memoizing object)
+-> Other statergies
+  - If you have multiple related values as dependencies try using a reducer(useReducer)
+  - you dont need to include setState(from useState) and dispatch(from useReducer) in the dependencies, as react gaurantees them to be statble across render
+
+## WHEN NOT TO USE AN EFFECT
+-> effect should be used as a last resort,when no other solution makes sense.React calls them an " escape hatch" to step outside of react
+
+## THREE CASES WHERE EFFECTS ARE OVERUSED(Avoid these as a beginner)
+1. Responsing to a user event. An event handler finction should be used instead
+2. Fetching data on component mount.This is fine in small app but in real world app a libery like react query should be used
+3. Synchronizing state changes with oen another(setting state based on another state varibale) try to use derived state and event handlers
+> But everything is accecttable in certain situation and certain doses
