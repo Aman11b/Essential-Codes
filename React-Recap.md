@@ -992,3 +992,10 @@ console.log(DifferentContent());
 ## CLOUSERS IN EFFECTS
 > A function captures all the varibales from its lexical scope.(FROM THE PLACE IT WAS DEFINED ,AT THE TIME THAT FUNCTION WAS CREATED)
 > stale clouser only happnes when if the function is still referencing some oldf value that are outdated by the time this function ins running 
+
+# REDUX
+-> 3rd party library to manager global state in web application
+-> stand alone liberary,but easy to integrate with react apps using react-redux library
+-> All golbal state is stored in on globally accessible store,which is easy to update using "action"(like useReducer)
+> Global store is updated -> All consuming component re-render
+> > It's conceptually similar to using the Context API + useReducer
