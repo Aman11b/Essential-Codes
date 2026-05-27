@@ -998,4 +998,23 @@ console.log(DifferentContent());
 -> stand alone liberary,but easy to integrate with react apps using react-redux library
 -> All golbal state is stored in on globally accessible store,which is easy to update using "action"(like useReducer)
 > Global store is updated -> All consuming component re-render
-> > It's conceptually similar to using the Context API + useReducer
+
+> It's conceptually similar to using the Context API + useReducer
+- You need to0 have a really good understanding for the useReducer hook in order to understand Redux
+-> Two versions
+  - Classic Redux
+  - Modern Redux toolkit
+
+## DO YOU NEED TO LEARN REDUX
+-> Historically, Reux was used in most React apps for all golbal state.Today, that has chnaged,because there are many alernatives.Many apps don't need redux anymore,unless they need a lot of global UI state
+
+## THE MECHANISM OF THE USEREDUCER HOOK
+- useReducer
+Event handler in component -> dispatch -> reducer(current state) -> next state -> re-render
+- redux
+Event handler in component -> Action creator function -> dispatch -> STORE(reducer, reducer ,...,Current State) -> next state -> re-render
+> Action creator function: to automate writing action.Helpful to keep all possible actions in one center place(This is convention not a must)
+
+> All global state lives in this centralised container.it's the single source of truth of global state in the app
+
+> Each reducer is a pure finction that calculate the next state(state transition) based on the action and the cirrent state.Usually one reducer per app feature
