@@ -988,3 +988,7 @@ console.log(DifferentContent());
 2. Fetching data on component mount.This is fine in small app but in real world app a libery like react query should be used
 3. Synchronizing state changes with oen another(setting state based on another state varibale) try to use derived state and event handlers
 > But everything is accecttable in certain situation and certain doses
+
+## CLOUSERS IN EFFECTS
+> A function captures all the varibales from its lexical scope.(FROM THE PLACE IT WAS DEFINED ,AT THE TIME THAT FUNCTION WAS CREATED)
+
