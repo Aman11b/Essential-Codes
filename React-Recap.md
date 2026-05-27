@@ -944,3 +944,18 @@ console.log(DifferentContent());
 1. pass children
 2. memoize direct decendent of the context
 
+## DONT OPTIMIZE PREMATURELY
+
+### Don't !
+> Dont optimize premeturely
+- Dont optimize anything if there is nothing to optimize
+- Dont wrap all component in memo(),useMemo(),useCallback()
+- Dont optimize content if it is not slow and doent have many consumers
+
+### Do
+> Fine performance bottleneck using the profiler and visual inspection(Laggy UI)
+- Fix those real performamce issues
+- memoize expensive re-renders,calcualation
+- Optimize content if it has many consumers and chnages often
+- Memoize contexr value + child component
+- Implement code splitting + lazy loading for SPA routes
