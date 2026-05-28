@@ -1018,3 +1018,15 @@ Event handler in component -> Action creator function(function  creating actions
 > All global state lives in this centralised container.it's the single source of truth of global state in the app
 
 > Each reducer is a pure finction that calculate the next state(state transition) based on the action and the cirrent state.Usually one reducer per app feature
+
+## WHAT IS REDUX MIDDLEWARE?
+> Where to make an asynchronous API call (oor any other async operation in redux)
+> STORE -> (No asynchronous operation, reducer needs to be pure function)
+
+> Fetching data inside component is not ideal
+
+# THUNK
+Middleware: A Function that ist between dispatching the action and the store.Allows us to run code after dispatching ,but before reaching the reducer in the store
+> Perfect for asynchronous code, API calls, timer loggins, side effects
+- we use 3 rd party component in this case Thunk(most popular)
+
