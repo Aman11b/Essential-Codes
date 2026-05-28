@@ -1012,7 +1012,7 @@ console.log(DifferentContent());
 - useReducer
 Event handler in component -> dispatch -> reducer(current state) -> next state -> re-render
 - redux
-Event handler in component -> Action creator function -> dispatch -> STORE(reducer, reducer ,...,Current State) -> next state -> re-render
+Event handler in component -> Action creator function(function  creating actions) -> dispatch -> STORE(reducer, reducer ,...,Current State) -> next state -> re-render
 > Action creator function: to automate writing action.Helpful to keep all possible actions in one center place(This is convention not a must)
 
 > All global state lives in this centralised container.it's the single source of truth of global state in the app
