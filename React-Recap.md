@@ -1042,3 +1042,13 @@ Middleware: A Function that ist between dispatching the action and the store.All
 - Action creators are automatically created
 - Automatically setup of thunk middleware and DevTools
 
+
+
+```
+    import { configureStore } from "@reduxjs/toolkit";
+```
+
+> configure store function basically wraps around create store and adds a few fucntionalities to it.
+
+> it automatically will combine our reducers,add the thunk middleware,setup developer tools
+
