@@ -1060,12 +1060,12 @@ Middleware: A Function that ist between dispatching the action and the store.All
 
 ### Context API + useReducer
 
--> built into react
--> East to set up a single context
--> Additional state "slide" requires new content set up from scrach("provider hell" in App.js)
--> No mechanism for asynch operation
--> performance opetimization is a pain
--> Only React DevTool
+1. built into react
+2. East to set up a single context
+3. Additional state "slide" requires new content set up from scrach("provider hell" in App.js)
+4. No mechanism for asynch operation
+5. performance opetimization is a pain
+6. Only React DevTool
 
 ### When to use Context API + useReducer
 
@@ -1078,12 +1078,12 @@ Middleware: A Function that ist between dispatching the action and the store.All
 
 ### Redux
 
--> Require additional packages(larger bundle size)
--> more work to set up initially
--> once set up,it is easy to create additional state "slices"
--> supporst middleware for async operations
--> performance is optimized out of box
--> Excellent DevTool
+1. Require additional packages(larger bundle size)
+2. more work to set up initially
+3. once set up,it is easy to create additional state "slices"
+4. supporst middleware for async operations
+5. performance is optimized out of box
+6. Excellent DevTool
 
 ### When to use redux
 
