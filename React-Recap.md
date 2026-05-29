@@ -1030,3 +1030,15 @@ Middleware: A Function that ist between dispatching the action and the store.All
 > Perfect for asynchronous code, API calls, timer loggins, side effects
 - we use 3 rd party component in this case Thunk(most popular)
 
+
+## What is Redux Toolkit(RTK)?
+
+-> the morden and preferred way to of writing Redux Code
+-> An opinionated approach,forcing us to use redux best practices
+-> 100% compatible with "classic" Redux allowing us to use them together
+-> Allows us to write a lot less code to achieve the same result
+
+- We can write code that "mutates" state inside reducer(will be converted to immutable logic behind the scenes by "Immer" library)
+- Action creators are automatically created
+- Automatically setup of thunk middleware and DevTools
+
