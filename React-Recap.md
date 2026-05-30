@@ -1092,3 +1092,20 @@ Middleware: A Function that ist between dispatching the action and the store.All
 - When you have lots of global UI state that needs to be updated frequently(beacause redux is optimized for this){shopping cart,current atb,complex filters or search...}
 - When you have complex state with nested objects and array(beacause you can mutate state with redux toolkit)
   > these are not super common in UI state
+
+
+# How to Plan and Built A react Application
+
+- for Small apps with one page and a few features
+  1. Break the desired UI into components
+  2. Build a static version(no state yet)
+  3. Think about the state management+data flow
+- IN REAL WORLD APPS(Rough overview)
+  1. Gather application requirements and features
+  2. Divide the application into pages
+     - Think about overall and page-level UI
+     - Break the desired UI into components
+     - Design and build a static version (no state yet)
+  3. Divide the application into feature categories
+     - Think about state management + data flow
+  4. Decide on what library to use(Technology decision)
