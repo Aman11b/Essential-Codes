@@ -172,15 +172,18 @@ Paste the following into your snippets file:
 }
 ```
 
-## Optional Folder Structure
+## Folder Structure
 
 ```text
 src/
 │
-├── components/
+├── data/
 ├── features/
+├── hooks/
 ├── pages/
 ├── services/
+├── styles/
+├── ui/
 ├── utils/
 ├── App.jsx
 └── main.jsx
